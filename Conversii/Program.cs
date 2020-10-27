@@ -4,16 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Conversii
-{
-    class Program
-    {
-        static void Main(string[] args)
-        {
-            using System;
-            using System.Collections.Generic;
-
-
 namespace Conversie
     {
         class Program
@@ -82,6 +72,3 @@ namespace Conversie
             }
         }
     }
-}
-    }
-}
