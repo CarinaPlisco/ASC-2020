@@ -4,48 +4,26 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Conversie
+namespace ASC_Conversie
 {
     class Program
     {
         static void Main(string[] args)
         {
-            /// Conversia unui numar din baza 10 intr-o baza tinta. 
+            /// Conversia unui numar din baza n intr-o baza tinta. 
 
             Console.WriteLine("*****************************************");
-            Console.WriteLine("*Conversie din baza 10 intr-o baza tinta*");
+            Console.WriteLine("*Conversie din baza n intr-o baza tinta*");
             Console.WriteLine("*****************************************");
 
-            // creati nume de identificatori expresivi
-            string line;
-            int numar;
+            Console.WriteLine("Introduceti un numar in baza 2: ");
+            string number2;
 
-            // Introducem numarul in baza 10 pe care vrem sa il convertim
-            Console.WriteLine("Introduceti numarul in baza 10 pe care vreti sa-l convertiti sau ");
-            line = Console.ReadLine();
-            numar = int.Parse(line);
+            number2 = Console.ReadLine();
 
-            
-
-            // TODO tratarea exceptiilor la introducerea numerelor
-
-            int lungimeNrB2;
-            int nrCifre = 0;
-           // lungimeNrB2 = number2.Length;
-
-            int nrZerouriDeAdaugat = 0;
-
-           // if (lungimeNrB2 % nrCifre > 0)
-            {
-           //     nrZerouriDeAdaugat = nrCifre - lungimeNrB2 % nrCifre;
-            }
-
-           // number2 = number2.PadLeft(nrZerouriDeAdaugat + lungimeNrB2, '0');
-
-            // Introducem baza tinta
-            Console.WriteLine("Introduceti baza tinta (un numar natural intre 2 si 16):");
-            int bazaTinta;
-            bazaTinta = int.Parse(Console.ReadLine());
+            Console.WriteLine("introduceti baza in care vreti sa faceti conversia (4,8,16)");
+            int baza;
+            baza = int.Parse(Console.ReadLine());
 
             Dictionary<string, string> base16 = new Dictionary<string, string>();
             base16.Add("0000", "0");
@@ -85,9 +63,8 @@ namespace Conversie
             base4.Add("10", "2");
             base4.Add("11", "3");
 
-            // TODO trebuie sa ne asiguram ca numarul introdus ca si baza tinta este intre 2 si 16
-
-            switch (bazaTinta)
+            int nrCifre = 0;
+            switch (baza)
             {
                 case 4:
                     nrCifre = 2;
@@ -101,14 +78,70 @@ namespace Conversie
                 default:
                     Console.WriteLine("Baza tinta nu este corecta!");
                     throw new InccorectBaseException();
-                    break;
             }
+            int lungimeNrB2;
+            lungimeNrB2 = number2.Length;
+
+            int nrZerouriDeAdaugat = 0;
+            if (lungimeNrB2 % nrCifre > 0)
+            {
+                nrZerouriDeAdaugat = nrCifre - lungimeNrB2 % nrCifre;
+            }
+            number2 = number2.PadLeft(nrZerouriDeAdaugat + lungimeNrB2, '0');
+
+            StringBuilder sb = new StringBuilder();
+            int i = 0;
+            string key;
+            while (i < number2.Length / nrCifre)
+            {
+                key = number2.Substring(i * nrCifre, nrCifre);
+                switch(baza)
+                {
+                    case 4:
+                        sb.Append(base4[key]);
+                        break;
+                    case 8:
+                        sb.Append(base4[key]);
+                        break;
+                    case 16:
+                        sb.Append(base4[key]);
+                        break;
+                }
+                i++;
+
+            }
+            string result = sb.ToString();
+
+            Console.WriteLine(result);
+
+
+            // creati nume de identificatori expresivi
+            string line;
+
+
+            // Introducem numarul in baza 10 pe care vrem sa il convertim
+            Console.WriteLine("Introduceti numarul in baza 10 pe care vreti sa-l convertiti: ");
+            line = Console.ReadLine();
+            int numar;
+            numar = int.Parse(line);
+
+
+            // Introducem baza tinta
+            Console.WriteLine("Introduceti baza tinta (un numar natural intre 2 si 16):");
+            line = Console.ReadLine();
+            int bazaTinta;
+            bazaTinta = int.Parse(line);
+
+
+
+            // TODO trebuie sa ne asiguram ca numarul introdus ca si baza tinta este intre 2 si 16
 
             int cat, rest;
-            string result = "";
+
+            string result2 = "";
             Stack<int> stiva = new Stack<int>();
 
-           while (numar > 0)
+            while (numar > 0)
             {
                 cat = numar / bazaTinta;
                 rest = numar % bazaTinta;
@@ -120,23 +153,14 @@ namespace Conversie
 
 
             // TODO afisarea corecta a cifrelor atunci cand baza tinta e mai mare decat 10
-
             while (stiva.Count > 0)
             {
-                result = result + stiva.Pop();
+                result2 = result2 + stiva.Pop();
             }
 
-            Console.WriteLine(result);
-
-
-Console.WriteLine("Introduceti numarul intr-o baza putere a lui 2 pe care vreti sa-l convertiti: ");
-            string number2;
-            number2 = Console.ReadLine();
-
-
-            
-
-
+            Console.WriteLine(result2);
         }
+
+
     }
 }

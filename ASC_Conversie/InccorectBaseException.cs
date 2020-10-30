@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Runtime.Serialization;
 
-namespace Conversie
+namespace ASC_Conversie
 {
     [Serializable]
     internal class InccorectBaseException : Exception

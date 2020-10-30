@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{FE4E6936-4B84-4EE9-8E17-D24EC687FD68}</ProjectGuid>
+    <ProjectGuid>{4F58F8B6-238C-49AA-AA47-69005652731C}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>Conversie</RootNamespace>
-    <AssemblyName>Conversie</AssemblyName>
+    <RootNamespace>ASC_Conversie</RootNamespace>
+    <AssemblyName>ASC_Conversie</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
