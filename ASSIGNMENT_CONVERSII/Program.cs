@@ -14,7 +14,6 @@ namespace ASSIGNMENT_CONVERSII
             Console.WriteLine("*Conversie dintr-o baza n intr-o baza tinta*");
             Console.WriteLine("*****************************************");
 
-
             // Introducem numarul pe care vrem sa il convertim
             Console.WriteLine("Introduceti numarul in baza 2 pe care vreti sa-l convertiti: ");
 
@@ -22,13 +21,11 @@ namespace ASSIGNMENT_CONVERSII
             string number2;
             number2 = Console.ReadLine();
 
-
             // Introducem baza tinta
             Console.WriteLine("Introduceti baza tinta 4, 8, 16:");
             int bazaTinta;
             string line;
             bazaTinta = int.Parse(Console.ReadLine());
-
 
             Dictionary<string, string> base16 = new Dictionary<string, string>();
             base16.Add("0000", "0");
@@ -68,9 +65,7 @@ namespace ASSIGNMENT_CONVERSII
             base4.Add("10", "2");
             base4.Add("11", "3");
 
-
             // TODO tratarea exceptiilor la introducerea numerelor
-
             int nrCifre = 0;
 
             switch (bazaTinta)
@@ -101,7 +96,6 @@ namespace ASSIGNMENT_CONVERSII
             }
 
             number2 = number2.PadLeft(nrZerouriDeAdaugat + lungimeNrB2, '0');
-            // Console.WriteLine(number2);
 
             StringBuilder sb = new StringBuilder();
             int i = 0;
